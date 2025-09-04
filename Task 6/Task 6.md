@@ -1,4 +1,4 @@
-![Screenshot 1](https://github.com/ghoneimmohamed/DEPI/blob/main/Screenshot%202025-09-03%20050647.png?raw=true)  
+![Screenshot 1](./Screenshot%202025-09-03%20050647.png)  
 ![Screenshot 2](https://github.com/ghoneimmohamed/DEPI/blob/main/Screenshot%202025-09-03%20051001.png?raw=true)  
 ![Screenshot 3](https://github.com/ghoneimmohamed/DEPI/blob/main/Screenshot%202025-09-03%20051150.png?raw=true)
 ![Screenshot 4](https://github.com/ghoneimmohamed/DEPI/blob/main/Screenshot%202025-09-03%20013318.png?raw=true) 
