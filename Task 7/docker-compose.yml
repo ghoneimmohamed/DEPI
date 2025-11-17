@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  spring:
+    image: petclinic1:latest
+    container_name: spring-app
+    ports:
+    - "8888:8080"
