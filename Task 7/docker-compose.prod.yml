@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  spring-app-prod:
+    image: petclinic1:latest
+    ports:
+      - "8082:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=mysql
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db_mysql:3306/petclinic?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=mysql
+      - SPRING_DATASOURCE_PASSWORD=mysql
+    depends_on:
+      - db_mysql
+    networks:
+      - app-net
+
+  db_mysql:
+    image: mysql:latest
+    container_name: db-mysql
+    restart: unless-stopped
+    env_file:
+      - ./.env.mysql
+    volumes:
+      - vol-mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    external: false
+
+volumes:
+  vol-mysql:
