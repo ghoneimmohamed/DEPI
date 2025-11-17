@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  spring-app-dev:
+    image: petclinic1:latest
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db_postgres:5432/petclinic
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - db_postgres
+    networks:
+      - app-net
+
+  db_postgres:
+    image: postgres:15
+    container_name: db-postgres
+    restart: unless-stopped
+    env_file:
+      - ./.env.postgres
+    volumes:
+      - vol-postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    external: false
+
+volumes:
+  vol-postgres:
